@@ -1,0 +1,26 @@
+literal Contstants
+->Numbers 
+    ->Integer
+    ->Floats
+    ->complex
+Strings
+     ->Single quotes
+     ->double quotes
+     ->triple quotes
+     ->Escape sequences(\n,\t,\r)    
+
+
+Does not have a char datadtype
+Every character is a string in python
+
+str1 = "hello "
+str2 = "H"
+
+print(type(str1)) -> string
+print(type(str2))  -> string
+
+
+Primitive datadtypes 
+int,float,str,complex,bool,list,sets,dictionary,touples
+
+contro
