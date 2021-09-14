@@ -1,0 +1,21 @@
+create a folder
+cd folder
+pip install virtuailenv
+virtuailenv env(your env name)
+env\Scripts\activate  ------- to activate your env 
+Or
+cd env
+cd Scripts
+activate
+
+pip freeze  -------- to see how many libraries are there in this directorty
+
+Every python projects have a file called a requirements.txt
+this file lists all the requirements , our python project has
+forwards all library from pip freeze to requirements.txt
+runtime.txt contains the python exact version
+
+
+pip freeze > requirements.txt
+vi runtime.txt
+python-3.8.2
