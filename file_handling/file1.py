@@ -73,3 +73,13 @@ with open("./with.txt", "r") as newFile:
     print(newFile.read())
 
 # newFile.read() it will cause err if you try to call outside of with block
+""" 
+with open("hello2.txt","r") as fileHello:
+    print(fileHello.read()) """
+
+
+import json
+
+with open("failed.txt", "w") as outfile:
+    outfile.write(json.dumps(["name"]))
+
