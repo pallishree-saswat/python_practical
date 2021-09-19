@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'navbar.html'  %}
+
+<div class="container">
+<h1>Hello world</h1>
+
+
+    <h2>Mentors</h2>
+    <ul class="collection"> 
+        {% for mentor in mentors %}
+        <li class="collection-item">{{ mentor }}</li>
+        {% endfor %}
+
+    </ul>
+
+
+<!-- inside comment also python code will run inside double curly braces -->
+<!-- {{developer }} write this line -->
+
+{% if show_developer %}
+<span>Developer by = {{ developer }}</span>
+{% endif %}
+
+</div>
+{% endblock %}
