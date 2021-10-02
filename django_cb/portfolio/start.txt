@@ -1,0 +1,27 @@
+cd destinaion folder
+django-admin startproject projectname
+cd projectname
+inside project folder - 
+
+virtualenv env
+
+env\Script\activate
+
+pip install django
+
+python manage.py startapp main - start a new application
+
+inside application (here inside main) 
+-create urls.py file
+-include path for application inside project(myportfolio/urls.py)
+
+
+
+install whitenose for using static files in developent and production
+always activate your env first then inside env pip install library - whenever you need to install any library
+
+after installing whitenoise include it inside middleware inside setting.py
+
+to start - python manage.py runserver
+
+before running server collectstatic files- python manage.py collectstatic

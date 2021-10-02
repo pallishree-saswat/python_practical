@@ -1,0 +1,15 @@
+{
+    "NAME": "Pallishree Behera",
+    "ABOUT_ME": "An enthusiastic  web developer .Want to  Learn more and more about new technologies .Interested in Machine .",
+    "LANGUAGES": [
+        
+        "JavaScript",
+        "Python",
+        "C++"
+    ],
+    "PROJECTS": [
+            ["filter_drama", "Ecommerce", "It is an amazing shoping website"],
+            ["place", "Social Media", "The best image sharing platform"],
+            ["whatshot", "Instagram", "You all know what this is! 😂"]
+    ]
+  }
