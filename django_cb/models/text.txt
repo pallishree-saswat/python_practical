@@ -1,0 +1,21 @@
+#inirtially there is no data base files
+#as soon as we run command python manage.py runserver we get and db.sqlite3 files
+#so to use sqlite down sqlite3 in c folder and add to system path
+#then run migrate command - python manage.py migrate
+#to show tables first go to that databse
+ex- -> sqlite3 db.sqlite3
+then run commands - > .tables 
+#Whenever you need you application to access database you have to add that application name in project setting file,
+installed app =['main']
+
+then do migrations---
+python manage.py makemigrations -- it will create new tables in your projects databse
+
+now run command  --> python manage.py migrate  -- it will apply unapplied  migratation  to system database
+
+There an admin.py file which will manage admin pannel
+To access the admin panel first you have to create superuser by this command-
+-> python manage.py createsuperuser
+
+admin
+12101996
