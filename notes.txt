@@ -19,3 +19,5 @@ runtime.txt contains the python exact version
 pip freeze > requirements.txt
 vi runtime.txt
 python-3.8.2
+
+django-admin startproject projectname
