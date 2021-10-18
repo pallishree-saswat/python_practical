@@ -7,7 +7,8 @@ from rest_framework.generics import(
     RetrieveAPIView,
     UpdateAPIView,
     RetrieveUpdateAPIView,
-    ListCreateAPIView
+    ListCreateAPIView,
+    DestroyAPIView
 )
 
 from api import serializers, models
@@ -47,6 +48,10 @@ class ArticleDetailview(RetrieveUpdateAPIView):   #if we do get request with par
     queryset = models.Articles.objects.all()
     serializer_class = serializers.ArticleSerializer
 
+
+class ArticleDeleteview(DestroyAPIView):  
+    queryset = models.Articles.objects.all()
+    serializer_class = serializers.ArticleSerializer
 
 """ 
 

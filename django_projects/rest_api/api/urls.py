@@ -6,5 +6,6 @@ urlpatterns = [
     path('create/', views.createArticle),
     path('articles/', views.ArticleListView.as_view()),
     path('articles/<int:pk>', views.ArticleDetailview.as_view()),
+    path('deleteArticle/<int:pk>', views.ArticleDeleteview.as_view()),
 
 ]
