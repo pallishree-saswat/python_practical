@@ -1,8 +1,10 @@
 from django.urls import path
-from django.urls.resolvers import URLPattern
 from api import views
 
 urlpatterns = [
-    path('', views.ArticlesListView.as_view()),
-    path('/<int:pk>', views.ArticleDetailView.as_view())
+    path('get/', views.getArticles),
+    path('create/', views.createArticle),
+    path('articles/', views.ArticleListView.as_view()),
+    path('articles/<int:pk>', views.ArticleDetailview.as_view()),
+
 ]

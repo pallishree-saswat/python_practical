@@ -10,6 +10,6 @@ class TagSerializer(serializers.ModelSerializer):
 
 class ArticleSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many = True, read_only = True)
-    class meta:
+    class Meta:
         model = models.Articles
         fields = '__all__'        

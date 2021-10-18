@@ -1,0 +1,168 @@
+Doing a rest api in django with rest framework
+-----------------------------------------------
+
+1-models
+
+write table schema for a table
+Also write a __str__  method  for string representaion of table while creating an instance 
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=256)
+    body = models.TextField()
+    def __str__(self):
+        return self.name
+
+
+2-Serializers
+Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes
+ that can then be easily rendered into JSON, XML or other content types. 
+Serializers also provide deserialization, allowing parsed data to be converted back into complex types, 
+after first validating the incoming data.
+
+create a separate serailizers.py file
+import serializers from restframework and models from app
+
+from rest_framework import serializers
+from api import models
+
+
+class TagSerializer(serializers.ModelSerializer):
+  name = serializers.CharField(max_length = 256)
+  body = serializers.TextField()
+
+OR
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Tag
+        fields = '__all__'
+
+
+
+3-Admin site register
+
+To use your models from admin side you have to register you models or table schema in admin.py file
+ex-:
+from django.contrib import admin
+from api import models
+
+admin.site.register([
+    models.Articles,
+    models.Tag
+])
+
+
+
+4-view (api view)
+
+
+
+
+5-urls
+
+
+6-Forms in  django vs ModelForm in django
+
+Forms created from forms.Form are manually configured by you.
+ You're better off using these for forms that do not directly interact with models.
+  For example a contact form, or a newsletter subscription form, where you might not necessarily 
+  be interacting with the database.
+
+
+ex-:
+from django import forms
+
+class ContactForm(forms.Form):
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField()
+    sender = forms.EmailField()
+    cc_myself = forms.BooleanField(required=False)
+
+
+Where as a form created from forms.ModelForm will be automatically created and then can later be tweaked by you.
+ The best examples really are from the superb documentation provided on the Django website.
+
+from django.forms import ModelForm
+from . import models
+
+# Create the form class.
+class ArticleForm(ModelForm):
+    class Meta:
+        model = models.Article
+
+
+7-Modelforms in django
+
+Django ModelForm is a class that is used to directly convert a model into a Django form. If you’re building a 
+database-driven app, chances are you’ll have forms that map closely to Django models. For example,
+ a User Registration model and form would have same quality and quantity of model fields and form fields.
+  So instead of creating a redundant code to first create a form and then map it to the model in a view, 
+  we can directly use ModelForm. It takes as argument the name of the model and converts it into a Django Form.
+   Not only this, ModelForm offers a lot of methods and features which automate the entire process and 
+   help remove code redundancy.
+
+create a forms.py file
+
+# import form class from django
+from django import forms
+
+# import Tag from models.py
+from api import models
+
+# create a ModelForm
+class TagForm(forms.ModelForm):
+	# specify the name of model to use
+	class Meta:
+		model = models.Tag
+		fields = "__all__"
+
+
+
+This form takes two arguments fields or exclude.
+
+fields – It is strongly recommended that you explicitly set all fields that should be edited in the form
+ using the fields attribute. Failure to do so can easily lead to security problems when a form unexpectedly
+  allows a user to set certain fields, especially when new fields are added to a model. Depending on how
+   the form is rendered, the problem may not even be visible on the web page.
+    Set the fields attribute to the 
+   special value ‘__all__’ to indicate that all fields in the model should be used.
+exclude – Set the exclude attribute of the ModelForm’s inner Meta class to a list of fields to be excluded
+ from the form.
+For example:
+
+class TagForm(ModelForm):
+    class Meta:
+        model = models.Tag
+        exclude = ['name']
+
+
+
+
+
+8- built in package JSON in python to work with json data
+import json -- import json to use it 
+json.dumps(data) -- convert to json data
+
+
+
+response= 
+[
+    {
+        "id": 1,
+        "tags": [
+            {
+                "id": 1,
+                "name": "pthon"
+            }
+        ],
+        "slug": "demo",
+        "title": "article1",
+        "body": "this is my first article",
+        "description": "article about python",
+        "createdAt": "2021-10-18T13:41:36.178291Z",
+        "updatedAt": "2021-10-18T13:41:36.178291Z",
+        "favourited": true,
+        "favouriteCount": 1
+    }
+]
